@@ -13,4 +13,11 @@ public class MainJFrame extends JFrame
     public MainJFrame(String title){
         super(title);
     }
+
+    public static void createAndShowMainJFrame(){
+        JFrame appFrame = new MainJFrame("Application");
+        appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+    }
 }
