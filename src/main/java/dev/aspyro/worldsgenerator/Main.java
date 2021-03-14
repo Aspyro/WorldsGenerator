@@ -18,6 +18,7 @@ public class Main {
 
         // Creation fenetre
         JFrame mainFrame = new MainJFrame("Generateur de mondes");
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Creation et ajout du Panel Principal
         JPanel mainPanel = new MainJPanel();
