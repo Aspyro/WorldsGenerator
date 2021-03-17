@@ -1,2 +1,4 @@
 dev/aspyro/worldsgenerator/CompositeGUI.java
  dev.aspyro.worldsgenerator.CompositeGUI
+dev/aspyro/worldsgenerator/CitoyenTest.java
+ dev.aspyro.worldsgenerator.CitoyenTest
