@@ -7,15 +7,24 @@ import java.util.Random;
 
 /**
  * Classe servant à générer des prénoms pour les Citoyens
+ *
+ * @author Aspyro
+ * @version %I%, %G%
  */
 public class GenerateurPrenom {
 
-    String fileName = "prenoms/listePrenoms.txt";
-    ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource(fileName).getFile());
+    static final String fileName = "prenoms/listePrenoms.txt";
     String[] fileContent;
+    private Random random = new Random();
+    private String separateur = "-";
 
+    /**
+     * Constructeur de la classe Generateur Prenom
+     */
     public GenerateurPrenom() {
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource(fileName).getFile());
 
         try {
             this.fileContent = Files.readAllLines(file.toPath()).toArray(new String[0]);
@@ -26,14 +35,22 @@ public class GenerateurPrenom {
         }
     }
 
-    private Random random = new Random();
-    private String separateur = "-";
 
+    /**
+     * Génère un prénom
+     *
+     * @return le prénom généré
+     */
     public String genererPrenom(){
         if (fileContent == null || fileContent.length <= 0) return "";
         return fileContent[this.random.nextInt(fileContent.length)];
     }
 
+    /**
+     * Génère un prénom composé
+     *
+     * @return le prénom composé généré
+     */
     public String genererPrenomCompose(){
 
         StringBuilder temp = new StringBuilder();

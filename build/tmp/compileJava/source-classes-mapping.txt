@@ -16,9 +16,9 @@ dev/aspyro/worldsgenerator/gui/FrameFeuille.java
  dev.aspyro.worldsgenerator.gui.FrameFeuille
 dev/aspyro/worldsgenerator/Main.java
  dev.aspyro.worldsgenerator.Main
-dev/aspyro/worldsgenerator/comportement/generateurs/GenerateurPrenom.java
- dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom
 dev/aspyro/worldsgenerator/comportement/generateurs/GenerateurNom.java
  dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurNom
+dev/aspyro/worldsgenerator/comportement/generateurs/GenerateurPrenom.java
+ dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom
 dev/aspyro/worldsgenerator/comportement/Citoyen.java
  dev.aspyro.worldsgenerator.comportement.Citoyen

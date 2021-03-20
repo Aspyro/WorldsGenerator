@@ -5,6 +5,12 @@ import dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom;
 
 import java.util.Random;
 
+/**
+ * Contient tout ce qui concerne un Citoyen
+ *
+ * @author Aspyro
+ * @version %I%, %G%
+ */
 public class Citoyen {
 
     private String prenomsCitoyen;
@@ -111,23 +117,46 @@ public class Citoyen {
         return noms.toString();
     }
 
+    /**
+     * Obtenir les prenoms du Citoyen
+     * @return prenomsCitoyen les prenoms du Citoyen
+     */
     public String getPrenomsCitoyen() {
 
         return prenomsCitoyen;
     }
 
+    /**
+     * Modifie les prenoms du Citoyen
+     *
+     * @param prenomsCitoyen les prenoms que possède le Citoyen avant le changement
+     */
     public void setPrenomsCitoyen(String prenomsCitoyen) {
         this.prenomsCitoyen = prenomsCitoyen;
     }
 
+    /**
+     * Obtenir les noms du Citoyen
+     *
+     * @return nomsCitoyen les noms du Citoyen
+     */
     public String getNomsCitoyen() {
         return nomsCitoyen;
     }
 
+    /**
+     * Modifie les noms du Citoyen
+     *
+     * @param nomsCitoyen les noms du Citoyen
+     */
     public void setNomsCitoyen(String nomsCitoyen) {
         this.nomsCitoyen = nomsCitoyen;
     }
 
+    /**
+     * Obtenir toutes les informations concernant le Citoyen
+     * @return infosCitoyen un tableau comprenant toutes les information du Citoyen
+     */
     public String[] getIdentiteCitoyen() {
         String[] infosCitoyen = {"", ""};
         StringBuilder temp = new StringBuilder();
@@ -141,8 +170,6 @@ public class Citoyen {
         temp.append("Noms : ");
         temp.append(nomsCitoyen);
         infosCitoyen[1] = temp.toString();
-
-
 
         return infosCitoyen;
     }
