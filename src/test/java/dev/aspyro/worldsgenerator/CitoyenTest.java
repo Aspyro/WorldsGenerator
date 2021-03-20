@@ -4,6 +4,7 @@ import dev.aspyro.worldsgenerator.comportement.Citoyen;
 import dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class CitoyenTest {
@@ -14,16 +15,22 @@ public class CitoyenTest {
         // Créer un nouveau citoyen avec génération autonome
         // des noms et prénoms
         Citoyen cit1 = new Citoyen();
+        Citoyen cit2 = new Citoyen();
+        Citoyen cit3 = new Citoyen();
 
         // Afficher les informations complète d'un citoyen
 
         // Afficher les prénoms d'un citoyen
-
-        System.out.println(cit1.getListePrenoms());
+/*
+        System.out.println(cit1.getPrenomsCitoyen());
         // Afficher les noms d'un citoyen
-        System.out.println(cit1.getListeNoms());
+        System.out.println(cit1.getNomsCitoyen());
         // Ajouter Citoyen dans Famille
+*/
 
+        System.out.println(Arrays.toString(cit1.getIdentiteCitoyen()));
+        System.out.println(Arrays.toString(cit2.getIdentiteCitoyen()));
+        System.out.println(Arrays.toString(cit3.getIdentiteCitoyen()));
     }
 
     @Test

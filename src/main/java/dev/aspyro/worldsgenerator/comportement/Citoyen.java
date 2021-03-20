@@ -1,26 +1,22 @@
 package dev.aspyro.worldsgenerator.comportement;
 
+import dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurNom;
 import dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Citoyen {
 
-    // TODO Remplacer les ArrayList par des Tableaux
-    // ToDo Tester generation de prenoms aleatoires
-    // TODO Tester generation de noms aleatoires
-    // TODO Remplir les tableaux de prenoms et de noms
-
-    private ArrayList<String> listePrenoms;
-    private ArrayList<String> listeNoms;
+    private String prenomsCitoyen;
+    private String nomsCitoyen;
 
     /**
      * Constructeur de la classe Citoyen
      */
     public Citoyen() {
 
-        new Citoyen(genererListePrenoms(), genererListeNoms());
+        this.prenomsCitoyen = genererListePrenoms();
+        this.nomsCitoyen = genererListeNoms();
 
     }
 
@@ -30,9 +26,9 @@ public class Citoyen {
      * @param prenoms la liste des prénoms à attribuer au Citoyen
      * @param noms la liste des noms à attribuer au Citoyen
      */
-    public Citoyen(ArrayList<String> prenoms, ArrayList<String> noms){
-        this.listePrenoms = prenoms;
-        this.listeNoms = noms;
+    public Citoyen(String prenoms, String noms){
+        this.prenomsCitoyen = prenoms;
+        this.nomsCitoyen = noms;
     }
 
     /**
@@ -40,7 +36,7 @@ public class Citoyen {
      *
      * @return la liste des prénoms générée
      */
-    public ArrayList<String> genererListePrenoms(){
+    public String genererListePrenoms(){
 
         Random r = new Random();
         int n = r.nextInt(5) + 1;
@@ -54,11 +50,10 @@ public class Citoyen {
      * @param quantite le nombre de prénoms à générer
      * @return la liste des prénoms générée
      */
-    public ArrayList<String> genererListePrenoms(int quantite){
+    public String genererListePrenoms(int quantite){
 
-        ArrayList<String> listePrenoms = new ArrayList<>();
-        String prenom;
         GenerateurPrenom gen = new GenerateurPrenom();
+        StringBuilder prenoms = new StringBuilder();
 
         for (int i = 0; i < quantite; i++) {
             if (i==0){
@@ -67,19 +62,21 @@ public class Citoyen {
                 int n = r.nextInt(2);
 
                 if (n == 0){
-                    prenom = gen.genererPrenomCompose();
+                    prenoms = prenoms.append(gen.genererPrenomCompose());
+
+
                 }
-                else prenom = gen.genererPrenom();
+                else prenoms = prenoms.append(gen.genererPrenom());
             }
             else {
-                prenom = gen.genererPrenom();
+                prenoms = prenoms.append(gen.genererPrenom());
             }
 
-            listePrenoms.add(prenom);
+            prenoms.append(" ");
 
         }
 
-        return listePrenoms;
+        return prenoms.toString();
     }
 
     /**
@@ -88,7 +85,7 @@ public class Citoyen {
      *
      * @return la liste de noms générée
      */
-    public ArrayList<String> genererListeNoms(){
+    public String genererListeNoms(){
 
         Random r = new Random();
         int n = r.nextInt(5) + 1;
@@ -102,53 +99,51 @@ public class Citoyen {
      * @param quantite le nombre de noms à générer
      * @return la liste de noms générée
      */
-    public ArrayList<String> genererListeNoms(int quantite){
+    public String genererListeNoms(int quantite){
 
-        ArrayList<String> listeNoms = new ArrayList<>();
-        String nom;
-        GenerateurPrenom gen = new GenerateurPrenom();
+        StringBuilder noms = new StringBuilder();
+        GenerateurNom gen = new GenerateurNom();
 
         for (int i = 0; i < quantite; i++) {
-            if (i==0){
-
-                Random r = new Random();
-                int n = r.nextInt(2);
-
-                if (n == 0){
-                    nom = gen.genererPrenomCompose();
-                }
-                else nom = gen.genererPrenom();
-            }
-            else {
-                nom = gen.genererPrenom();
-            }
-
-            listeNoms.add(nom);
-
+            noms = noms.append(gen.genererNom());
         }
 
-        return listeNoms;
+        return noms.toString();
     }
 
-    public String getListePrenoms() {
+    public String getPrenomsCitoyen() {
 
-        StringBuilder prenoms = new StringBuilder();
-
-            for (String listePrenom : listePrenoms) {
-                prenoms.append(listePrenom);
-            }
-        return prenoms.toString();
+        return prenomsCitoyen;
     }
 
-    public void setListePrenoms(ArrayList<String> listePrenoms) {
-        this.listePrenoms = listePrenoms;
+    public void setPrenomsCitoyen(String prenomsCitoyen) {
+        this.prenomsCitoyen = prenomsCitoyen;
     }
 
-    public ArrayList<String> getListeNoms() {
-        return listeNoms;
+    public String getNomsCitoyen() {
+        return nomsCitoyen;
     }
 
-    public void setListeNoms(ArrayList<String> listeNoms) {
-        this.listeNoms = listeNoms;
+    public void setNomsCitoyen(String nomsCitoyen) {
+        this.nomsCitoyen = nomsCitoyen;
+    }
+
+    public String[] getIdentiteCitoyen() {
+        String[] infosCitoyen = {"", ""};
+        StringBuilder temp = new StringBuilder();
+
+        temp.append("Prenoms : ");
+        temp.append(prenomsCitoyen);
+        infosCitoyen[0] = temp.toString();
+
+        temp.delete(0, temp.length());
+
+        temp.append("Noms : ");
+        temp.append(nomsCitoyen);
+        infosCitoyen[1] = temp.toString();
+
+
+
+        return infosCitoyen;
     }
 }
