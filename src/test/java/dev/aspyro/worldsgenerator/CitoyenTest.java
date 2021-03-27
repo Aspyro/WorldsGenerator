@@ -28,9 +28,9 @@ public class CitoyenTest {
         // Ajouter Citoyen dans Famille
 */
 
-        System.out.println(Arrays.toString(cit1.getIdentiteCitoyen()));
-        System.out.println(Arrays.toString(cit2.getIdentiteCitoyen()));
-        System.out.println(Arrays.toString(cit3.getIdentiteCitoyen()));
+        System.out.println(cit1.getIdentiteCitoyen());
+        System.out.println(cit2.getIdentiteCitoyen());
+        System.out.println(cit3.getIdentiteCitoyen());
     }
 
     @Test

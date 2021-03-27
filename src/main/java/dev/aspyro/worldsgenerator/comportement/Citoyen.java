@@ -1,8 +1,8 @@
 package dev.aspyro.worldsgenerator.comportement;
 
-import dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurNom;
-import dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom;
+import dev.aspyro.worldsgenerator.comportement.generateurs.*;
 
+import java.util.Hashtable;
 import java.util.Random;
 
 /**
@@ -15,6 +15,7 @@ public class Citoyen {
 
     private String prenomsCitoyen;
     private String nomsCitoyen;
+    private Foyer foyer;
 
     /**
      * Constructeur de la classe Citoyen
@@ -62,26 +63,22 @@ public class Citoyen {
         StringBuilder prenoms = new StringBuilder();
 
         for (int i = 0; i < quantite; i++) {
-            if (i==0){
 
-                Random r = new Random();
-                int n = r.nextInt(2);
+            switch (i) {
+                case 0:
+                    Random r = new Random();
+                    int n = r.nextInt(2);
 
-                if (n == 0){
-                    prenoms = prenoms.append(gen.genererPrenomCompose());
+                    if (n == 0) prenoms = prenoms.append(gen.genererPrenomCompose()).append(" ");
+                    else prenoms = prenoms.append(gen.genererPrenom()).append(" ");
 
-
-                }
-                else prenoms = prenoms.append(gen.genererPrenom());
+                    break;
+                default:
+                    if (i == quantite - 1) prenoms = prenoms.append(gen.genererPrenom());
+                    else prenoms = prenoms.append(gen.genererPrenom()).append(" ");
+                    break;
             }
-            else {
-                prenoms = prenoms.append(gen.genererPrenom());
-            }
-
-            prenoms.append(" ");
-
         }
-
         return prenoms.toString();
     }
 
@@ -111,7 +108,8 @@ public class Citoyen {
         GenerateurNom gen = new GenerateurNom();
 
         for (int i = 0; i < quantite; i++) {
-            noms = noms.append(gen.genererNom());
+            if(i == quantite - 1) noms = noms.append(gen.genererNom());
+            else noms = noms.append(gen.genererNom()).append(" ");
         }
 
         return noms.toString();
@@ -154,23 +152,46 @@ public class Citoyen {
     }
 
     /**
+     * Obtenir le Foyer du Citoyen
+     *
+     * @return foyer le Foyer du Citoyen
+     */
+    public Foyer getFoyer() {
+        return this.foyer;
+    }
+
+    /**
+     * Modifie le foyer du Citoyen
+     *
+     * @param foyer le Foyer du Citoyen
+     */
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
+
+    /**
      * Obtenir toutes les informations concernant le Citoyen
      * @return infosCitoyen un tableau comprenant toutes les information du Citoyen
      */
-    public String[] getIdentiteCitoyen() {
-        String[] infosCitoyen = {"", ""};
+    public String getIdentiteCitoyen() {
+
+        Hashtable<String, String> tableInfos = new Hashtable<>();
+
         StringBuilder temp = new StringBuilder();
 
-        temp.append("Prenoms : ");
-        temp.append(prenomsCitoyen);
-        infosCitoyen[0] = temp.toString();
+        // Obtenir prénoms du Citoyen
+        tableInfos.put("prenoms", getPrenomsCitoyen());
 
-        temp.delete(0, temp.length());
+        // Obtenir noms du Citoyen
+        tableInfos.put("noms", getNomsCitoyen());
 
-        temp.append("Noms : ");
-        temp.append(nomsCitoyen);
-        infosCitoyen[1] = temp.toString();
+        // Obtenir nom du Foyer du Citoyen
+        tableInfos.put("foyer", getFoyer().getNomFoyer());
 
-        return infosCitoyen;
+        temp.append("Prenoms : ").append(tableInfos.get("prenoms")).append("; ");
+        temp.append("Noms : ").append(tableInfos.get("noms")).append("; ");
+        temp.append("Foyer : ").append(tableInfos.get("foyer")).append("; ");
+
+        return temp.toString();
     }
 }

@@ -1,6 +1,6 @@
 package dev.aspyro.worldsgenerator;
 
-import dev.aspyro.worldsgenerator.gui.*;
+import dev.aspyro.worldsgenerator.AppGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +8,10 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args){
+        AppGui app = new AppGui();
+    }
+
+/*
 
         //Todo Régler la position des panels pour que btnPanel soit à gauche et drawingPanel à droite
         //    sans qu'il y ait d'écart entre les deux
@@ -58,6 +62,6 @@ public class Main {
         mainFrame.setVisible(true);
 
     }
-
+*/
 
 }

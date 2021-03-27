@@ -45,8 +45,7 @@ public class GenerateurNom {
 
         if (fileContent == null || fileContent.length <= 0) return "";
 
-        String nom = fileContent[this.random.nextInt(fileContent.length)] +
-                " ";
+        String nom = fileContent[this.random.nextInt(fileContent.length)];
 
         nom = nom.substring(0, 1).toUpperCase() + nom.substring(1).toLowerCase();
 

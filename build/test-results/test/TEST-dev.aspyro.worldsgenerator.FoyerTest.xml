@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.aspyro.worldsgenerator.FoyerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-27T14:42:44" hostname="GHYSDAMIEN" time="1.994">
+  <properties/>
+  <testcase name="testGetIdentiteCitoyen()" classname="dev.aspyro.worldsgenerator.FoyerTest" time="1.994"/>
+  <system-out><![CDATA[Prenoms : Marilyne Joven; Noms : Peters Reynolds; Foyer : Skidmore Bell; 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
