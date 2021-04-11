@@ -1,4 +1,4 @@
-package dev.aspyro.worldsgenerator.comportement.generateurs;
+package dev.aspyro.worldsgenerator.comportement.generators;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,17 +11,17 @@ import java.util.Random;
  * @author Aspyro
  * @version %I%, %G%
  */
-public class GenerateurPrenom {
+public class FirstnameGenerator {
 
     static final String fileName = "prenoms/listePrenoms.txt";
     String[] fileContent;
     private Random random = new Random();
-    private String separateur = "-";
+    private String hyphen = "-";
 
     /**
      * Constructeur de la classe Generateur Prenom
      */
-    public GenerateurPrenom() {
+    public FirstnameGenerator() {
 
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
@@ -41,7 +41,7 @@ public class GenerateurPrenom {
      *
      * @return le prénom généré
      */
-    public String genererPrenom(){
+    public String generateFirstname(){
         if (fileContent == null || fileContent.length <= 0) return "";
         return fileContent[this.random.nextInt(fileContent.length)];
     }
@@ -51,23 +51,23 @@ public class GenerateurPrenom {
      *
      * @return le prénom composé généré
      */
-    public String genererPrenomCompose(){
+    public String generateComposedFirstname(){
 
-        StringBuilder temp = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         if(fileContent == null || fileContent.length <= 0) return "";
 
-        String premier = fileContent[this.random.nextInt(fileContent.length)];
-        String deuxieme = fileContent[this.random.nextInt(fileContent.length)];
+        String first = fileContent[this.random.nextInt(fileContent.length)];
+        String second = fileContent[this.random.nextInt(fileContent.length)];
 
-        while (premier.equals(deuxieme)) deuxieme = fileContent[this.random.nextInt(fileContent.length)];
+        while (first.equals(second)) second = fileContent[this.random.nextInt(fileContent.length)];
 
-        premier = premier.substring(0, 1).toUpperCase() + premier.substring(1).toLowerCase();
-        deuxieme = deuxieme.substring(0, 1).toUpperCase() + deuxieme.substring(1).toLowerCase();
+        first = first.substring(0, 1).toUpperCase() + first.substring(1).toLowerCase();
+        second = second.substring(0, 1).toUpperCase() + second.substring(1).toLowerCase();
 
-        temp.append(premier);
-        temp.append(separateur);
-        temp.append(deuxieme);
+        builder.append(first);
+        builder.append(hyphen);
+        builder.append(second);
 
-        return temp.toString();
+        return builder.toString();
     }
 }

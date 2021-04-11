@@ -1,9 +1,8 @@
-package dev.aspyro.worldsgenerator.comportement.generateurs;
+package dev.aspyro.worldsgenerator.comportement.generators;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -11,18 +10,17 @@ import java.util.Random;
  * @author Aspyro
  * @version %I%, %G%
  */
-public class GenerateurNom {
+public class LastnameGenerator {
 
     String fileName = "noms/listeNoms.txt";
     String[] fileContent;
 
     private Random random = new Random();
-    private String separateur = "-";
 
     /**
      * Constructeur de la classe GenerateurNom
      */
-    public GenerateurNom() {
+    public LastnameGenerator() {
 
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
@@ -41,15 +39,15 @@ public class GenerateurNom {
      *
      * @return nom le nom de famille
      */
-    public String genererNom(){
+    public String generateLastname(){
 
         if (fileContent == null || fileContent.length <= 0) return "";
 
-        String nom = fileContent[this.random.nextInt(fileContent.length)];
+        String lastname = fileContent[this.random.nextInt(fileContent.length)];
 
-        nom = nom.substring(0, 1).toUpperCase() + nom.substring(1).toLowerCase();
+        lastname = lastname.substring(0, 1).toUpperCase() + lastname.substring(1).toLowerCase();
 
-        return nom;
+        return lastname;
     }
 
 }

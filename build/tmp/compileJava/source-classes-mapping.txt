@@ -2,10 +2,10 @@ dev/aspyro/worldsgenerator/comportement/generateurs/GenerateurNom.java
  dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurNom
 dev/aspyro/worldsgenerator/comportement/generateurs/package-info.java
  dev.aspyro.worldsgenerator.comportement.generateurs.package-info
-dev/aspyro/worldsgenerator/comportement/Foyer.java
- dev.aspyro.worldsgenerator.comportement.Foyer
 dev/aspyro/worldsgenerator/comportement/generateurs/GenerateurPrenom.java
  dev.aspyro.worldsgenerator.comportement.generateurs.GenerateurPrenom
+dev/aspyro/worldsgenerator/comportement/Foyer.java
+ dev.aspyro.worldsgenerator.comportement.Foyer
 dev/aspyro/worldsgenerator/comportement/Citoyen.java
  dev.aspyro.worldsgenerator.comportement.Citoyen
 dev/aspyro/worldsgenerator/AppGui.java
